@@ -1,4 +1,4 @@
-# Cigopt
+# Cigopt 🚬
 
 Like Sigopt, but free
 
