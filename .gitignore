@@ -1,3 +1,5 @@
-*.sw*
 env/
-*.pyc
+**/*.sw*
+**/*.pyc
+**/*.egg-info
+**/*.pytest*
