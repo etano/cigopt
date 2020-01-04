@@ -1,2 +1,5 @@
 numpy
 hyperopt
+fastapi
+uvicorn
+ujson
