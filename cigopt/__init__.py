@@ -28,5 +28,5 @@ def get_new_params(experiment: Experiment, rstate, algo=tpe.suggest, n_points=1)
     new_points = algo(new_ids, domain, trials, rstate.randint(2 ** 31 - 1))
     new_params = [[Parameter(name=k, value=v[0]) for k, v in point['misc']['vals'].items()] for point in new_points]
     if experiment.results:
-        experiment.best_params = [Parameter(name=k, value=v) for k, v in trials.best_trial['misc']['vals'].items()]
+        experiment.best_params = [Parameter(name=k, value=v[0]) for k, v in trials.best_trial['misc']['vals'].items()]
     return new_params, experiment

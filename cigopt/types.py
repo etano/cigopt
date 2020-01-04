@@ -1,11 +1,11 @@
 from pydantic import BaseModel
-from typing import Any, Dict, List
+from typing import Any, Dict, List, Union
 from uuid import uuid4 as uuid
 
 
 class Parameter(BaseModel):
     name: str
-    value: Any
+    value: Union[float, int, str]
 
 
 class ParameterSpace(BaseModel):
