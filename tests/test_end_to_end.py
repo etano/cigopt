@@ -8,7 +8,7 @@ fn_cases = {
         100
     ),
 }
-@pytest.mark.parametrize("fn,n_trials", fn_cases.values(), ids=fn_cases.keys())
+@pytest.mark.parametrize("fn,n_trials", fn_cases.values(), ids=list(fn_cases.keys()))
 def test_fn(fn, n_trials):
     cigopt_best_trial, cigopt_trials = run_cigopt(fn, n_trials)
     hyperopt_best_trial, hyperopt_trials = run_hyperopt(fn, n_trials)

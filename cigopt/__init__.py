@@ -29,7 +29,7 @@ def run_cigopt(fn, n_trials):
             rstate=rstate,
             algo=tpe.suggest)
         for point in new_points:
-            args = {k: v[0] for k, v in point['misc']['vals'].iteritems()}
+            args = {k: v[0] for k, v in point['misc']['vals'].items()}
             results.append({'point': args, 'result': fn(args)})
     return best_trial, results
 
@@ -37,7 +37,7 @@ def run_cigopt(fn, n_trials):
 def run_hyperopt(fn, n_trials):
     seed = 0
     rstate = np.random.RandomState(seed)
-    space={'x': hp.uniform('x', -5, 5)}
+    space = {'x': hp.uniform('x', -5, 5)}
     trials = Trials()
     best_trial = fmin(
         fn, space, algo=tpe.suggest, max_evals=n_trials, rstate=rstate,
