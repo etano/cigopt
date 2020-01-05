@@ -1,6 +1,8 @@
 from pydantic import BaseModel
 from typing import Any, Dict, List, Union
-from uuid import uuid4 as uuid
+
+
+EXPERIMENT_DOC_TYPE = "experiment"
 
 
 class Parameter(BaseModel):
@@ -22,6 +24,10 @@ class Result(BaseModel):
 class Experiment(BaseModel):
     name: str
     parameter_spaces: List[ParameterSpace]
-    experiment_id: str = str(uuid())
+    experiment_id: str = None
     results: List[Result] = []
     best_params: List[Parameter] = []
+
+
+class ExperimentInDB(Experiment):
+    type: str = EXPERIMENT_DOC_TYPE

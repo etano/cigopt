@@ -3,3 +3,4 @@ hyperopt
 fastapi
 uvicorn
 ujson
+couchbase
