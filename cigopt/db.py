@@ -35,7 +35,7 @@ def get_bucket():
     cluster = Cluster(
         "couchbase://localhost:8091?fetch_mutation_tokens=1&operation_timeout=30&n1ql_timeout=300"
     )
-    authenticator = PasswordAuthenticator("root", "password")
+    authenticator = PasswordAuthenticator("admin", "password")
     cluster.authenticate(authenticator)
     bucket: Bucket = cluster.open_bucket("experiments", lockmode=LOCKMODE_WAIT)
     bucket.timeout = 30

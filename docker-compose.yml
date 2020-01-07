@@ -1,0 +1,16 @@
+version: '2.1'
+services:
+    couchbase:
+        image: couchbase
+        volumes:
+            - .couchbase:/opt/couchbase/var
+        ports:
+            - "8091-8096:8091-8096"
+            - "11210-11211:11210-11211"
+    cigopt:
+        build: .
+        restart: always
+        depends_on:
+            - couchbase
+        ports:
+            - "8000:80"
